@@ -17,16 +17,17 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     //Data set
     
-    var dataForMovies = ["Return of the King", "Star Wars", "No Country for Old Men", "Scott Pilgrim", "Metropolis"]
+    var dataForMovies = ["Return of the King", "Star Wars", "No Country for Old Men", "Scott Pilgrim", "Fritz Lang Metropolis"]
     var dataForBooks = ["The Hobbit", "Prince Caspian", "Dreams in the Witch House", "Iron Shadows in the Moon", "Out of the Silent Planet"]
     
     //-----Outlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var buttonLabel1: UIButton!
     @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet weak var textFieldOutlet: UITextField!
     
     
-    //viewDidLoad sets datasource
+    //viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         myTableView.dataSource = self
@@ -83,7 +84,38 @@ class ViewController: UIViewController, UITableViewDataSource {
             break
     }
 }
-
+    
+    
+    @IBAction func removePressed(_ sender: Any) {
+        switch booksLoaded {
+        case true:
+            dataForBooks.removeLast()
+            myTableView.reloadData()
+        
+        case false:
+            dataForMovies.removeLast()
+            myTableView.reloadData()
+        }
+    
+    }
+    
+    
+//    @IBAction func addPressed(_ sender: Any) {
+    
+//        if textFieldOutlet.text != ""{
+    
+//    booksLoaded == false{
+//    dataForMovies.insert(textFieldOutlet.text ?? "default", at: 0)
+//        self.myTableView.reloadData
+//    }
+//        else{
+//            dataForBooks.insert(textFieldOutlet.text ?? "default", at: 0)
+//            myTableView.reloadData()
+//        }
+//        }
+    
+    
+//    }
 }
     
 
